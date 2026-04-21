@@ -94,9 +94,7 @@
         .hero-bg {
             position: absolute;
             inset: 0;
-            /* Replace this with: background-image: url('hero-bg.jpg'); */
-            background:
-                linear-gradient(135deg, #f5f0eb 0%, #e8e0d8 30%, #d4ccc4 60%, #c8beb4 100%);
+            background-image: url('hero-bg.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -283,6 +281,62 @@
             opacity: 0.45;
         }
 
+        /* ─── Advisory ─── */
+        .advisory {
+            border-top: 1px solid var(--light-grey);
+        }
+
+        .advisory-content {
+            max-width: 680px;
+        }
+
+        .advisory-content h3 {
+            font-family: var(--serif);
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+
+        .advisory-content .advisory-type {
+            font-family: var(--sans);
+            font-size: 10px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.45;
+            margin-bottom: 32px;
+        }
+
+        .advisory-content p {
+            font-family: var(--serif);
+            font-size: 20px;
+            font-weight: 300;
+            line-height: 1.8;
+            opacity: 0.8;
+        }
+
+        .advisory-content p + p {
+            margin-top: 24px;
+        }
+
+        .advisory-services {
+            margin-top: 40px;
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .advisory-services span {
+            font-family: var(--sans);
+            font-size: 11px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.4;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--light-grey);
+        }
+
         /* ─── Contact ─── */
         .contact {
             border-top: 1px solid var(--light-grey);
@@ -428,7 +482,7 @@
 
     <section class="about fade-in" id="about">
         <div class="section-label">About</div>
-        <p>Miss Bubble AB is a Stockholm-based group working across lifestyle fashion and digital services.</p>
+        <p>Miss Bubble AB is a Stockholm-based group working across lifestyle fashion, digital services, and cross-border business advisory.</p>
         <p>Founded with a cross-cultural perspective spanning Asia and Northern Europe, we build brands and solutions that bring a little more beauty, confidence, and clarity into everyday life.</p>
     </section>
 
@@ -470,6 +524,22 @@
                 </div>
             </a>
 
+        </div>
+    </section>
+
+    <section class="advisory fade-in" id="advisory">
+        <div class="section-label">Cross-Border Advisory</div>
+        <div class="advisory-content">
+            <h3>Sino-Nordic Bridge</h3>
+            <div class="advisory-type">International Business</div>
+            <p>Bridging China and the Nordics — we facilitate partnerships, market entry, and cultural alignment for businesses expanding across borders.</p>
+            <p>With deep roots in both ecosystems, we help companies navigate what no guidebook can teach.</p>
+            <div class="advisory-services">
+                <span>Market Entry</span>
+                <span>Partnership Facilitation</span>
+                <span>Cultural Advisory</span>
+                <span>Trade Delegation</span>
+            </div>
         </div>
     </section>
 
