@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miss Bubble — Stockholm</title>
+    <meta name="description" content="Miss Bubble AB is a Stockholm-based group operating across lifestyle fashion and digital services.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #1A1A1A;
+            --white: #FAFAF8;
+            --grey: #999;
+            --light-grey: #E8E6E3;
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--white);
+            color: var(--black);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── Navigation ─── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 28px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(250, 250, 248, 0.85);
+            backdrop-filter: blur(20px);
+        }
+
+        nav .logo {
+            font-family: var(--serif);
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 36px;
+        }
+
+        nav .nav-links a {
+            font-family: var(--sans);
+            font-size: 11px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--black);
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        nav .nav-links a:hover {
+            opacity: 1;
+        }
+
+        /* ─── Hero with background image ─── */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 24px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            /* Replace this with: background-image: url('hero-bg.jpg'); */
+            background:
+                linear-gradient(135deg, #f5f0eb 0%, #e8e0d8 30%, #d4ccc4 60%, #c8beb4 100%);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(250, 250, 248, 0.78);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: 72px;
+            font-weight: 300;
+            letter-spacing: 20px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero .divider {
+            width: 120px;
+            height: 1px;
+            background: var(--black);
+            opacity: 0.3;
+            margin: 0 auto 20px;
+        }
+
+        .hero .subtitle {
+            font-family: var(--serif);
+            font-size: 16px;
+            font-weight: 300;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        /* ─── Sections ─── */
+        section {
+            padding: 120px 48px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: var(--sans);
+            font-size: 10px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            opacity: 0.4;
+            margin-bottom: 48px;
+        }
+
+        /* ─── About ─── */
+        .about p {
+            font-family: var(--serif);
+            font-size: 26px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--black);
+            max-width: 720px;
+        }
+
+        .about p + p {
+            margin-top: 32px;
+        }
+
+        /* ─── Founder ─── */
+        .founder {
+            border-top: 1px solid var(--light-grey);
+        }
+
+        .founder p {
+            font-family: var(--serif);
+            font-size: 22px;
+            font-weight: 300;
+            line-height: 1.8;
+            max-width: 680px;
+            opacity: 0.85;
+        }
+
+        .founder .name {
+            font-family: var(--serif);
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-top: 40px;
+            opacity: 0.6;
+        }
+
+        /* ─── Ventures ─── */
+        .ventures {
+            border-top: 1px solid var(--light-grey);
+            max-width: 1100px;
+        }
+
+        .ventures-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .venture-link {
+            display: block;
+            text-decoration: none;
+            color: var(--black);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .venture-link:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        .venture-preview {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            border: 1px solid var(--light-grey);
+            overflow: hidden;
+            background: #f0eeec;
+        }
+
+        .venture-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.6s ease;
+        }
+
+        .venture-link:hover .venture-preview img {
+            transform: scale(1.02);
+        }
+
+        /* Placeholder for when no screenshot is available */
+        .venture-preview .placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .venture-preview .placeholder .placeholder-name {
+            font-family: var(--serif);
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 6px;
+            opacity: 0.3;
+        }
+
+        .venture-preview .placeholder .placeholder-url {
+            font-family: var(--sans);
+            font-size: 11px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            opacity: 0.2;
+        }
+
+        .venture-info {
+            padding: 24px 4px 0;
+        }
+
+        .venture-info h3 {
+            font-family: var(--serif);
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 6px;
+        }
+
+        .venture-info .venture-type {
+            font-family: var(--sans);
+            font-size: 10px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.45;
+        }
+
+        /* ─── Contact ─── */
+        .contact {
+            border-top: 1px solid var(--light-grey);
+            text-align: center;
+            padding: 120px 48px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .contact .section-label {
+            margin-bottom: 48px;
+        }
+
+        .contact .email {
+            font-family: var(--serif);
+            font-size: 28px;
+            font-weight: 300;
+            letter-spacing: 4px;
+        }
+
+        .contact .email a {
+            text-decoration: none;
+            color: var(--black);
+            border-bottom: 1px solid var(--light-grey);
+            padding-bottom: 4px;
+            transition: border-color 0.3s;
+        }
+
+        .contact .email a:hover {
+            border-color: var(--black);
+        }
+
+        .contact .location {
+            font-family: var(--sans);
+            font-size: 12px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.4;
+            margin-top: 24px;
+        }
+
+        /* ─── Footer ─── */
+        footer {
+            padding: 48px;
+            text-align: center;
+            border-top: 1px solid var(--light-grey);
+        }
+
+        footer p {
+            font-family: var(--sans);
+            font-size: 10px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.3;
+        }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 768px) {
+            nav {
+                padding: 20px 24px;
+            }
+
+            nav .nav-links {
+                gap: 20px;
+            }
+
+            nav .nav-links a {
+                font-size: 10px;
+                letter-spacing: 2px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+                letter-spacing: 10px;
+            }
+
+            .hero .subtitle {
+                font-size: 12px;
+                letter-spacing: 5px;
+            }
+
+            section {
+                padding: 80px 24px;
+            }
+
+            .about p {
+                font-size: 20px;
+            }
+
+            .founder p {
+                font-size: 18px;
+            }
+
+            .ventures-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contact {
+                padding: 80px 24px;
+            }
+
+            .contact .email {
+                font-size: 20px;
+            }
+        }
+
+        /* ─── Fade-in animation ─── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Miss Bubble</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#ventures">Ventures</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Miss Bubble</h1>
+            <div class="divider"></div>
+            <div class="subtitle">Stockholm</div>
+        </div>
+    </section>
+
+    <section class="about fade-in" id="about">
+        <div class="section-label">About</div>
+        <p>Miss Bubble AB is a Stockholm-based group working across lifestyle fashion and digital services.</p>
+        <p>Founded with a cross-cultural perspective spanning Asia and Northern Europe, we build brands and solutions that bring a little more beauty, confidence, and clarity into everyday life.</p>
+    </section>
+
+    <section class="founder fade-in">
+        <div class="section-label">Founder</div>
+        <p>Built on a decade of entrepreneurship across China and Sweden, Miss Bubble AB reflects a simple belief: that business can be both ambitious and human. With roots in international commerce, brand-building, and technology, we approach every venture with the same question — can we make something genuinely worth having?</p>
+        <div class="name">Bao Fang — Founder & CEO</div>
+    </section>
+
+    <section class="ventures fade-in" id="ventures">
+        <div class="section-label">Ventures</div>
+        <div class="ventures-grid">
+
+            <a href="https://missbubble.se" target="_blank" class="venture-link">
+                <div class="venture-preview">
+                    <!-- Replace placeholder with: <img src="missbubble-preview.jpg" alt="Miss Bubble"> -->
+                    <div class="placeholder">
+                        <div class="placeholder-name">Miss Bubble</div>
+                        <div class="placeholder-url">missbubble.se</div>
+                    </div>
+                </div>
+                <div class="venture-info">
+                    <h3>Miss Bubble</h3>
+                    <div class="venture-type">Lifestyle & Fashion</div>
+                </div>
+            </a>
+
+            <a href="https://dinweb.se" target="_blank" class="venture-link">
+                <div class="venture-preview">
+                    <!-- Replace placeholder with: <img src="dinweb-preview.jpg" alt="dinweb"> -->
+                    <div class="placeholder">
+                        <div class="placeholder-name">dinweb</div>
+                        <div class="placeholder-url">dinweb.se</div>
+                    </div>
+                </div>
+                <div class="venture-info">
+                    <h3>dinweb</h3>
+                    <div class="venture-type">Digital Services</div>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <section class="contact fade-in" id="contact">
+        <div class="section-label">Contact</div>
+        <div class="email"><a href="mailto:info@missbubble.eu">info@missbubble.eu</a></div>
+        <div class="location">Stockholm, Sweden</div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Miss Bubble AB. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
